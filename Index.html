@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Food Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            max-width: 600px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cat Food Calculator</h1>
+    <form id="catFoodForm">
+        <div class="form-group">
+            <label for="currentWeight">Current Body Weight (kg):</label>
+            <input type="number" id="currentWeight" name="currentWeight" step="0.1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="targetWeight">Target Body Weight (kg):</label>
+            <input type="number" id="targetWeight" name="targetWeight" step="0.1" required>
+        </div>
+
+        <h3>Dry Food Chemical Quality</h3>
+        <div class="form-group">
+            <label for="dryProtein">Protein (%):</label>
+            <input type="number" id="dryProtein" name="dryProtein" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="dryFat">Fat Content (%):</label>
+            <input type="number" id="dryFat" name="dryFat" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="dryFibre">Crude Fibre (%):</label>
+            <input type="number" id="dryFibre" name="dryFibre" step="0.1" required>
+        </div>
+        <div class="form-group">
+            <label for="dryMoisture">Moisture (%):</label>
+            <input type="number" id="dryMoisture" name="dryMoisture" step="0.1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="wetFood">Does your cat eat wet food?</label>
+            <select id="wetFood" name="wetFood" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <h3>Wet Food Chemical Quality (if applicable)</h3>
+        <div class="form-group">
+            <label for="wetProtein">Protein (%):</label>
+            <input type="number" id="wetProtein" name="wetProtein" step="0.1">
+        </div>
+        <div class="form-group">
+            <label for="wetFat">Fat Content (%):</label>
+            <input type="number" id="wetFat" name="wetFat" step="0.1">
+        </div>
+        <div class="form-group">
+            <label for="wetFibre">Crude Fibre (%):</label>
+            <input type="number" id="wetFibre" name="wetFibre" step="0.1">
+        </div>
+        <div class="form-group">
+            <label for="wetMoisture">Moisture (%):</label>
+            <input type="number" id="wetMoisture" name="wetMoisture" step="0.1">
+        </div>
+
+        <div class="form-group" style="border-style: solid">
+            <label for="ageInput">Cat's Age (Choose one):</label>
+            <div>
+                <label>
+                    <input type="radio" name="ageInputType" value="birthDate" checked>
+                    Enter Birth Date
+                </label>
+                <input type="date" id="birthDate" name="birthDate">
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="ageInputType" value="birthNumber">
+                    Enter Birth Number
+                </label>
+                <input type="number" id="birthNumber" name="birthNumber" step="1" min="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="physicalCondition">Physical Condition:</label>
+            <select id="physicalCondition" name="physicalCondition" required>
+                <option value="underweight">Weight below the limit</option>
+                <option value="balanced">Balanced</option>
+                <option value="overweight">Weight above the limit</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="breed">Breed:</label>
+            <select id="breed" name="breed" required>
+                <option value="Unknown Breed">Unknown Breed</option>
+                <option value="Abyssinian">Abyssinian</option>
+                <option value="American Bobtail">American Bobtail</option>
+                <option value="American Curl">American Curl</option>
+                <option value="American Shorthair">American Shorthair</option>
+                <option value="American Wirehair">American Wirehair</option>
+                <option value="Balinese">Balinese</option>
+                <option value="Bengal">Bengal</option>
+                <option value="Birman">Birman</option>
+                <option value="Bombay">Bombay</option>
+                <option value="British Shorthair">British Shorthair</option>
+                <option value="Burmese">Burmese</option>
+                <option value="Burmilla">Burmilla</option>
+                <option value="Chartreux">Chartreux</option>
+                <option value="Cornish Rex">Cornish Rex</option>
+                <option value="Devon Rex">Devon Rex</option>
+                <option value="Egyptian Mau">Egyptian Mau</option>
+                <option value="European Burmese">European Burmese</option>
+                <option value="Exotic Shorthair">Exotic Shorthair</option>
+                <option value="Havana Brown">Havana Brown</option>
+                <option value="Japanese Bobtail">Japanese Bobtail</option>
+                <option value="Khao Manee">Khao Manee</option>
+                <option value="Korat">Korat</option>
+                <option value="LaPerm">LaPerm</option>
+                <option value="Maine Coon">Maine Coon</option>
+                <option value="Manx">Manx</option>
+                <option value="Norwegian Forest Cat">Norwegian Forest Cat</option>
+                <option value="Ocicat">Ocicat</option>
+                <option value="Oriental">Oriental</option>
+                <option value="Persian">Persian</option>
+                <option value="Ragdoll">Ragdoll</option>
+                <option value="Russian Blue">Russian Blue</option>
+                <option value="Scottish Fold">Scottish Fold</option>
+                <option value="Siamese">Siamese</option>
+                <option value="Siberian">Siberian</option>
+                <option value="Singapura">Singapura</option>
+                <option value="Snowshoe">Snowshoe</option>
+                <option value="Somali">Somali</option>
+                <option value="Sphynx">Sphynx</option>
+                <option value="Tonkinese">Tonkinese</option>
+                <option value="Turkish Angora">Turkish Angora</option>
+                <option value="Turkish Van">Turkish Van</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="activityLevel">Activity Level:</label>
+            <select id="activityLevel" name="activityLevel" required>
+                <option value="low">Low (less than 1 hour per day)</option>
+                <option value="medium">Medium (less than 2 hours per day)</option>
+                <option value="high">High (more than 3 hours per day)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="healthProblems">Health Problems (if any):</label>
+            <select id="healthProblems" name="healthProblems" multiple>
+                <optgroup label="Weight Loss Related Health Problems">
+                    <option value="none">None</option>
+                    <option value="obesity">Obesity</option>
+                    <option value="diabetes">Diabetes</option>
+                    <option value="arthritis">Arthritis</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="sterilized">Has your cat been sterilized?</label>
+            <select id="sterilized" name="sterilized" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <button type="button" onclick="calculateFood()">Calculate Food Requirement</button>
+    </form>
+
+    <div id="results" style="margin-top: 20px;">
+        <h3>Results</h3>
+        <p id="totalFoodAmount"></p>
+        <p id="dryFoodAmount"></p>
+        <p id="wetFoodAmount"></p>
+    </div>
+
+    <script>
+        function calculateFood() {
+            const form = document.getElementById('catFoodForm');
+            const data = new FormData(form);
+            
+            const formData = {};
+            for (const [key, value] of data.entries()) {
+                formData[key] = value;
+            }
+            
+            // Convert form data to appropriate types
+            const currentWeight = parseFloat(formData.currentWeight);
+            const targetWeight = parseFloat(formData.targetWeight);
+            const ageInputType = formData.ageInputType;
+            const activityLevel = formData.activityLevel;
+            const sterilized = formData.sterilized === 'yes';
+            const physicalCondition = formData.physicalCondition;
+            const healthProblems = formData.healthProblems;
+            const wetFood = formData.wetFood === 'yes';
+
+            // Calculate age based on selected input method
+            let age;
+            if (ageInputType === 'birthDate') {
+                const birthDate = new Date(formData.birthDate);
+                const diff = Date.now() - birthDate.getTime();
+                age = new Date(diff).getUTCFullYear() - 1970;
+            } else {
+                age = parseInt(formData.birthNumber);
+            }
+
+            // Determine base caloric needs based on weight
+            let baseCalories = 70 * Math.pow(targetWeight, 0.75);
+
+            // Adjust caloric needs based on activity level
+            let activityFactor;
+            switch (activityLevel) {
+                case 'low':
+                    activityFactor = 1.2;
+                    break;
+                case 'medium':
+                    activityFactor = 1.4;
+                    break;
+                case 'high':
+                    activityFactor = 1.6;
+                    break;
+            }
+
+            // Adjust for sterilization
+            if (sterilized) {
+                activityFactor *= 0.8;
+            }
+
+            // Adjust for physical condition
+            if (physicalCondition === 'overweight') {
+                baseCalories *= 0.8;
+            }
+
+            // Adjust for health problems
+            if (healthProblems.includes('obesity') || healthProblems.includes('diabetes') || healthProblems.includes('arthritis')) {
+                baseCalories *= 0.9;
+            }
+
+            // Calculate total daily caloric needs
+            const dailyCalories = baseCalories * activityFactor;
+
+            // Assume dry food: 4 calories per gram
+            const dryFoodAmount = dailyCalories / 4;
+
+            // Wet food calculations
+            let wetFoodAmountPackets = 0;
+            if (wetFood) {
+                // Assuming each packet/can of wet food contains 100 calories
+                const caloriesPerPacket = 100;
+                wetFoodAmountPackets = dailyCalories / caloriesPerPacket;
+            }
+
+            document.getElementById('totalFoodAmount').textContent = `Total Daily Caloric Requirement: ${dailyCalories.toFixed(2)} kcal`;
+            document.getElementById('dryFoodAmount').textContent = `Dry Food Amount: ${dryFoodAmount.toFixed(2)} grams`;
+            document.getElementById('wetFoodAmount').textContent = wetFood ? `Wet Food Amount: ${wetFoodAmountPackets.toFixed(2)} packets/cans` : '';
+        }
+    </script>
+</body>
+</html>
